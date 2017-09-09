@@ -82,4 +82,72 @@ public class VectorMath {
 	return aux;
 	}
 	
+	public double getValor(int i)
+	{
+		return this.vector[i];
+	}
+	
+	//NORMA UNO
+	public double normaUno()
+	{
+		double resultado = 0;
+		for(int i = 0; i < this.dimension;i++)
+			resultado += this.vector[i];
+		return resultado;
+	}
+	
+	//NORMA DOS
+	public double normaDos()
+	{
+		double resultado = 0;
+		for(int h = 0; h < this.dimension; h++)
+			resultado += (this.vector[h] * this.vector[h]);
+		return Math.sqrt(resultado);
+	}
+	
+	//NORMA INFINITO
+	public double normaInfinito()
+	{
+		double resultado = 0, maximo = 0;
+		for(int i = 0; i < this.dimension ; i++)
+		{
+			resultado = this.vector[i];
+			if(resultado > maximo)
+				maximo = resultado;
+		}
+		return maximo;
+	}
+
+	//EQUALS
+	public boolean equals(VectorMath v1)
+	{
+		if(this.dimension != v1.dimension)
+			return false;
+		for(int i = 0; i < this.dimension; i++)
+		{
+			if(this.getValor(i) != v1.getValor(i))
+				return false;
+		}
+		return true;
+	}
+	
+	//TO STRING
+	public String toString()
+	{
+		String resultado = "";
+		for(int i = 0; i < this.dimension; i++)
+			resultado += (this.vector[i] + " ");
+		return resultado;
+	}
+	
+	public class DistDimException extends ArithmeticException
+	{
+	    public DistDimException(String mensaje)
+	    {
+	        super(mensaje);
+	    }
+	}
+	
+
+	
 }
