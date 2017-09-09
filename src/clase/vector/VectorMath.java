@@ -1,7 +1,5 @@
 package clase.vector;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class VectorMath {
 	private int dimension;
